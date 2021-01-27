@@ -1,0 +1,22 @@
+Pais de Producción: Costa Rica
+
+Instituto Tecnológico de Costa Rica
+
+Ingeniería en Computadores
+
+Proyecto IiI: Algoritmos y Estructuras de Datos I
+
+Lenguaje de Programación: Python 3.8.2
+
+Version del programa 1.0
+
+Autores: 
+Daniel Montoya Rivera
+Kendall Adolfo Martinez Carvajal
+Gustavo Gamboa Mora
+
+Profesor: Leonardo Araya Martínez
+
+Grupo 3
+
+II Semestre 2020

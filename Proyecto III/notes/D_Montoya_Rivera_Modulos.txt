@@ -1,0 +1,8 @@
+Módulos integrados de Python:
+
+tkinter
+os
+random
+threading
+pygame
+

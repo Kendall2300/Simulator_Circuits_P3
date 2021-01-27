@@ -1,0 +1,4 @@
+El emulador de circuitos utiliza la ley de Ohm para la realización del cálculo de los 
+valores que se encuentran en cada resistencia del circuito tanto serie como paralelo.
+Dado que el circuito es un grafo, utiliza el algoritmo de Dijkstra para encontrar 
+determinar dichos valores.
