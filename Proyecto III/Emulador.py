@@ -184,8 +184,11 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
         C_Game = Canvas(WindGame, width = 1300 , height = 800, bg = 'white')
         C_Game.place(x=0, y=0)
 
-        global num, source, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, cantResistencias
-        num = 0
+        global CoordX, source, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, cantResistencias
+        
+        CoordX = 22
+        
+        cantResistencias
 
         #Instancia de objetos del emulador
         
@@ -246,6 +249,10 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
         lB_Error = Label(C_Game, text = "Error en alguna de las entradas", bg = "black", fg= 'red', font = "Arial 12") #Label que muestra errores en alguna de las entradas
         #lB_Error.place(x=835, y=300)
         lB_Error.place_forget()
+
+        lB_Error2 = Label(C_Game, text = "Alcanzada la máxima cantidad de resistencias", bg = "black", fg= 'red', font = "Arial 12") #Label que muestra errores en alguna de las entradas
+        #lB_Error2.place(x=835, y=300)
+        lB_Error2.place_forget()
         
 
         #Creacion de los labels a los que corresponde cada componente del emulador
@@ -298,27 +305,29 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
         C_Game.imageSupply = General.cargarImg2('Power.png')
         imgSource = C_Game.create_image(0,150, anchor = NW , image =C_Game.imageSupply)
 
-        C_Game.imageSeries1 = General.cargarImg2('S.png')
+        C_Game.imageSeries = General.cargarImg2('S.png')
         
-        imgSeries1 = C_Game.create_image(22,38, anchor = NW , image =C_Game.imageSeries1)
+        C_Game.imageParallel = General.cargarImg2('P.png')
+        
+        
+        
+        img2 = C_Game.create_image(122,38, anchor = NW , image =C_Game.imageSeries)
 
-        imgSeries2 = C_Game.create_image(122,38, anchor = NW , image =C_Game.imageSeries1)
+        img3 = C_Game.create_image(222,38, anchor = NW , image =C_Game.imageSeries)
 
-        imgSeries3 = C_Game.create_image(222,38, anchor = NW , image =C_Game.imageSeries1)
+        img4 = C_Game.create_image(322,38, anchor = NW , image =C_Game.imageSeries)
 
-        imgSeries4 = C_Game.create_image(322,38, anchor = NW , image =C_Game.imageSeries1)
+        img5 = C_Game.create_image(422,38, anchor = NW , image =C_Game.imageSeries)
 
-        imgSeries5 = C_Game.create_image(422,38, anchor = NW , image =C_Game.imageSeries1)
+        img6 = C_Game.create_image(522,38, anchor = NW , image =C_Game.imageSeries)
 
-        imgSeries6 = C_Game.create_image(522,38, anchor = NW , image =C_Game.imageSeries1)
+        img7 = C_Game.create_image(622,38, anchor = NW , image =C_Game.imageSeries)
 
-        imgSeries7 = C_Game.create_image(622,38, anchor = NW , image =C_Game.imageSeries1)
+        img8 = C_Game.create_image(722,38, anchor = NW , image =C_Game.imageSeries)
 
-        imgSeries8 = C_Game.create_image(722,38, anchor = NW , image =C_Game.imageSeries1)
+        img9 = C_Game.create_image(822,38, anchor = NW , image =C_Game.imageSeries)
 
-        imgSeries9 = C_Game.create_image(822,38, anchor = NW , image =C_Game.imageSeries1)
-
-        imgSeries10 = C_Game.create_image(922,38, anchor = NW , image =C_Game.imageSeries1)
+        img10 = C_Game.create_image(922,38, anchor = NW , image =C_Game.imageSeries)
 
 
         def editElements(Numero):
@@ -334,6 +343,7 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
             btn_Save.place(x = 835, y = 200)
 
             en_Name.delete(0,"end")
+            
             en_Valor.delete(0,"end")
 
             
@@ -343,11 +353,11 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                                 
             elif Numero == 2: #Condicion para evaluar si se quiere agregar una resistencia en serie
                 
-                btn_Save.config(command=lambda: agregaResSerie(en_Name.get().upper(),en_Valor.get()))
+                btn_Save.config(command=lambda: agregaRes(en_Name.get().upper(),en_Valor.get(), 1))
                                 
             else: #Condicion para evaluar si se quiere agregar una resistencia en paralelo
                 
-                btn_Save.config(command=lambda: agregaResParalelo(en_Name.get().upper(),en_Valor.get()))
+                btn_Save.config(command=lambda: agregaRes(en_Name.get().upper(),en_Valor.get(), 2))
 
 
         #End editElements
@@ -356,10 +366,11 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
             
             Value = int(Value)
             
-            if not(ValidaEntradas(Name,Value, 1)):
+            if not(ValidaEntradas(Name,Value, 1)): #Valida que los parámetros de entrada sean válidos
                 lB_Error.place(x=835, y=300)
             else:
                 lB_Error.place_forget()
+                
                 source.setName(Name)
                 source.setTension(Value)
 
@@ -367,54 +378,63 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                 
                 
             
-        def agregaResSerie(Name, Value):
+        def agregaRes(Name, Value, Tipo):
 
-            global cantResistencias
-
-            Value = int(Value)
-            
-            if not (ValidaEntradas(Name,Value, 2)):
-                lB_Error.place(x=835, y=300)
-            else:
-                lB_Error.place_forget()
-                
-                
-            
-        def agregaResParalelo(Name, Value):
-
-            global cantResistencias
+            global cantResistencias, CoordX
 
             Value = int(Value)
             
-            if not (ValidaEntradas(Name,Value, 2)):
+            if not (ValidaEntradas(Name,Value, 2)): #Valida que los parámetros de entrada sean válidos
                 lB_Error.place(x=835, y=300)
             else:
                 lB_Error.place_forget()
+
+                if Tipo == 1: #Condicion para agregar una resistencia en serie
+
+                    if cantResistencias == 10:
+                    
+                        lB_Error2.place(x=835, y=300)
+                        
+                    elif cantResistencias == 0:
+                        
+                        cantResistencias += 1
+
+                        r1.setName(Name)
+                        r1.setsetResistencia(Value)
+
+                        if Tipo == 1:
+
+                            img1 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries1)
+
+                        else:
+
+                            img1 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries1)
+                        
+
+                        
+
+                        
+
+                        
+
+
+                
+                
+                
+
+
 
                 
                 
 
 
         def ValidaEntradas(Name,Value, Numero): #Valida las entradas dadas por el usuario
-            
-            if Name.strip() != "" or len(Name.strip())>6: #Valida si el nombre dado es nulo
+
+
+            if Name.strip() != "" and len(Name.strip()) <= 3: #Valida si el nombre dado es nulo o no cumple con la longitud establecida
                 
-                if Numero == 1: #Validación de entrada para la tension. Puesto que la magnitud de la tension va de los 10 a los 0V
+                if Value <= 10 and Value >= 0 and Numero == 1 or Value >= 1 and Numero != 1:
                     
-                    if Value <= 10 and Value >= 0:#Valida que la tension vaya del rango de los 0 a 10V
-                        btn_Save.place_forget()
-                        lb_EnValor.place_forget()
-                        en_Valor.place_forget()
-                        lb_EnName.place_forget()
-                        en_Name.place_forget()
-                        en_Name.delete(0,"end")
-                        en_Valor.delete(0,"end")
-                        return True
-                    
-                    else:
-                        return False
-                    
-                elif Value >= 1:
                     btn_Save.place_forget()
                     lb_EnValor.place_forget()
                     en_Valor.place_forget()
@@ -423,13 +443,11 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                     en_Name.delete(0,"end")
                     en_Valor.delete(0,"end")
                     return True
-                        
+                
                 else:
                     return False
-                
             else:
                 return False
-                        
             
 
             
