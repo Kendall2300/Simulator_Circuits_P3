@@ -184,7 +184,7 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
         C_Game = Canvas(WindGame, width = 1300 , height = 800, bg = 'white')
         C_Game.place(x=0, y=0)
 
-        global CoordX, source, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, cantResistencias, LastElement, mouse
+        global CoordX, source, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, cantResistencias, LastElement, mouse, Grafo
 
         global Tension, Tension1, Tension2, Tension3, Tension4 ,Tension5, Tension6, Tension7, Tension8, Tension9, GroundT
 
@@ -203,16 +203,16 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
         Tension8 = random.uniform(0, 10)
         Tension9 = random.uniform(0, 10)
 
-        Corriente = random.uniform(0, 1000)
-        Corriente1 = random.uniform(0, 1000)
-        Corriente2 = random.uniform(0, 1000)
-        Corriente3 = random.uniform(0, 1000)
-        Corriente4 = random.uniform(0, 1000)
-        Corriente5 = random.uniform(0, 1000)
-        Corriente6 = random.uniform(0, 1000)
-        Corriente7 = random.uniform(0, 1000)
-        Corriente8 = random.uniform(0, 1000)
-        Corriente9 = random.uniform(0, 1000)
+        Corriente = random.uniform(0, 0.001)
+        Corriente1 = random.uniform(0, 0.001)
+        Corriente2 = random.uniform(0, 0.001)
+        Corriente3 = random.uniform(0, 0.001)
+        Corriente4 = random.uniform(0, 0.001)
+        Corriente5 = random.uniform(0, 0.001)
+        Corriente6 = random.uniform(0, 0.001)
+        Corriente7 = random.uniform(0, 0.001)
+        Corriente8 = random.uniform(0, 0.001)
+        Corriente9 = random.uniform(0, 0.001)
 
         GroundT = 0
 
@@ -223,6 +223,9 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
         LastElement = 0
         
         cantResistencias = 0
+
+        Grafo = {}
+
 
         #Instancia de objetos del emulador
         
@@ -265,11 +268,10 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
         #btn_Stop.place(x = 666, y = 590)
         btn_Stop.place_forget()
 
+        btn_Distance =  Button(C_Game, text = 'Path', bg = 'Blue', fg = 'Black', height = 1, width = 10,command = lambda:dijkstra(Grafo,'A','L'), font =("Goudy Stout", 10)) # Regresa al menu Principal
+        #btn_Distance.place(x = 200, y = 600)
+        btn_Distance.place_forget()
         
-        #btn_SourceEdit.place_forget()
-        #btn_SR.place_forget()
-        #btn_SR2.place_forget()
-        #btn_Simulate.place_forget()
         
         #Creacion de las entradas, labels y botones para la edicion y adicion de los componentes del emulador
  
@@ -309,40 +311,86 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
         lb_Fuente = Label(C_Game, text = source.getName() + "\n" + str(source.getTension()) + "V", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el archivo
         lb_Fuente.place(x=70, y = 160)
         
-        lb_R1 = Label(C_Game, text = r1.getName() + "\n" + str(r1.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el archivo
+        lb_R1 = Label(C_Game, text = r1.getName() + "\n" + str(r1.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra los valores de la resistencia
         lb_R1.place_forget()
 
-
-        lb_R2 = Label(C_Game, text = r2.getName() + "\n" + str(r2.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el archivo
+        lb_R2 = Label(C_Game, text = r2.getName() + "\n" + str(r2.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra los valores de la resistencia
         lb_R2.place_forget()         
 
-        lb_R3 = Label(C_Game, text = r3.getName() + "\n" + str(r3.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el archivo
+        lb_R3 = Label(C_Game, text = r3.getName() + "\n" + str(r3.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra los valores de la resistencia
         lb_R3.place_forget()         
 
-        lb_R4 = Label(C_Game, text = r4.getName() + "\n" + str(r4.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el archivo
+        lb_R4 = Label(C_Game, text = r4.getName() + "\n" + str(r4.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra los valores de la resistencia
         lb_R4.place_forget()         
 
-        lb_R5 = Label(C_Game, text = r5.getName() + "\n" + str(r5.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el archivo
+        lb_R5 = Label(C_Game, text = r5.getName() + "\n" + str(r5.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra los valores de la resistencia
         lb_R5.place_forget()         
 
-        lb_R6 = Label(C_Game, text = r6.getName() + "\n" + str(r6.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el archivo
+        lb_R6 = Label(C_Game, text = r6.getName() + "\n" + str(r6.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra los valores de la resistencia
         lb_R6.place_forget()         
 
-        lb_R7 = Label(C_Game, text = r7.getName() + "\n" + str(r7.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el archivo
+        lb_R7 = Label(C_Game, text = r7.getName() + "\n" + str(r7.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra los valores de la resistencia
         lb_R7.place_forget()         
 
-        lb_R8 = Label(C_Game, text = r8.getName() + "\n" + str(r8.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el archivo
+        lb_R8 = Label(C_Game, text = r8.getName() + "\n" + str(r8.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra los valores de la resistencia
         lb_R8.place_forget()         
 
-        lb_R9 = Label(C_Game, text = r9.getName() + "\n" + str(r9.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el archivo
+        lb_R9 = Label(C_Game, text = r9.getName() + "\n" + str(r9.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14")#Label que muestra los valores de la resistencia
         lb_R9.place_forget()         
 
-        lb_R10 = Label(C_Game, text = r10.getName() + "\n" + str(r10.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el archivo
-        lb_R10.place_forget() 
+        lb_R10 = Label(C_Game, text = r10.getName() + "\n" + str(r10.getResistencia()) + "Ω", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra los valores de la resistencia
+        lb_R10.place_forget()
+        
+        lb_Data = Label(C_Game, bg = "Black", fg= 'White', font = "Arial 14") #Label que muestra los datos del mouse
+        lb_Data.place_forget()
 
+        lb_Nodo1 = Label(C_Game, text = "A", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo A
+        lb_Nodo1.place(x=10, y = 15)
 
-        lb_Data = Label(C_Game, bg = "Black", fg= 'White', font = "Arial 14") #Label que muestra el archivo
-        lb_Data.place_forget() 
+        lb_Nodo2 = Label(C_Game, text = "B", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo B
+        #lb_Nodo2.place(x=150, y = 15)
+        lb_Nodo2.place_forget()
+
+        lb_Nodo3 = Label(C_Game, text = "C", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo C
+        #lb_Nodo3.place(x=250, y = 15)
+        lb_Nodo3.place_forget()
+
+        lb_Nodo4 = Label(C_Game, text = "D", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo D
+        #lb_Nodo4.place(x=350, y = 15)
+        lb_Nodo4.place_forget()
+
+        lb_Nodo5 = Label(C_Game, text = "E", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo E
+        #lb_Nodo5.place(x=450, y = 15)
+        lb_Nodo5.place_forget()
+
+        lb_Nodo6 = Label(C_Game, text = "F", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo F
+        #lb_Nodo6.place(x=550, y = 15)
+        lb_Nodo6.place_forget()
+
+        lb_Nodo7 = Label(C_Game, text = "G", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo G
+        #lb_Nodo7.place(x=650, y = 15)
+        lb_Nodo7.place_forget()
+
+        lb_Nodo8 = Label(C_Game, text = "H", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo H
+        #lb_Nodo8.place(x=750, y = 15)
+        lb_Nodo8.place_forget()
+
+        lb_Nodo9 = Label(C_Game, text = "I", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo I
+        #lb_Nodo9.place(x=850, y = 15)
+        lb_Nodo9.place_forget()
+
+        lb_Nodo10 = Label(C_Game, text = "J", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo J
+        #lb_Nodo10.place(x=950, y = 15)
+        lb_Nodo10.place_forget()
+
+        lb_Nodo11 = Label(C_Game, text = "K", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo K
+        #lb_Nodo11.place(x=1050, y = 15)
+        lb_Nodo11.place_forget()
+
+        lb_Nodo12 = Label(C_Game, text = "L", bg = "white", fg= 'Green', font = "Arial 14") #Label que muestra el Nodo L
+        lb_Nodo12.place(x=10, y = 325)
+
+        
         
 
             
@@ -437,7 +485,7 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
             
         def agregaRes(Name, Value, Tipo): #Funcion encargada de la implementación de resistencias
 
-            global cantResistencias, CoordX, LastElement
+            global cantResistencias, CoordX, LastElement, Grafo
 
             Value = int(Value)
             
@@ -449,27 +497,30 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                 lB_Error.place_forget()
                 
 
-                if cantResistencias == 10:
+                if cantResistencias == 10: #Evalúa si se alcanzó la maxima cantidad de resistencias (10)
                 
                     lB_Error2.place(x=100, y=600)
                     
                     
                 elif cantResistencias == 0:
                     
-                    cantResistencias += 1
+                    cantResistencias += 1 #Incremento en la cantidad de resistencias
 
-                    r1.setName(Name)
-                    r1.setResistencia(Value)
+                    #Establecimiento de los atributos del objeto resistencia
+                    
+                    r1.setName(Name)# Nombre de la resistencia
+                    r1.setResistencia(Value)# Valor de la resistencia
 
                     btn_Simulate.place(x = 666, y = 590)
+                    lb_Nodo2.place(x=150, y = 15)
 
                     
                     
-                    lb_R1.config(text = r1.getName() + "\n" + str(r1.getResistencia()) + "Ω")
+                    lb_R1.config(text = r1.getName() + "\n" + str(r1.getResistencia()) + "Ω") #Label al cual corresponde la resistencia
                     
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
 
-                        r1.setTipo(1)
+                        r1.setTipo(1) #Establece el atributo del tipo de resistencia 1 es para resistencia en serie y 2 es para resitencia en paralelo
 
                         LastElement = 1
 
@@ -478,7 +529,7 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                         lb_R1.place(x= CoordX + 58, y = 70)
                         
 
-                    else:
+                    else: #Si la condición inicial no se cumple, entonces se añade una resistencia en paralelo
 
                         r1.setTipo(2)
 
@@ -496,6 +547,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     r2.setName(Name)
                     r2.setResistencia(Value)
+
+                    lb_Nodo3.place(x=250, y = 15)
 
                     
 
@@ -530,6 +583,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     r3.setName(Name)
                     r3.setResistencia(Value)
+
+                    lb_Nodo4.place(x=350, y = 15)
                     
 
                     lb_R3.config(text = r3.getName() + "\n" + str(r3.getResistencia()) + "Ω")
@@ -564,6 +619,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                     r4.setName(Name)
                     r4.setResistencia(Value)
 
+                    lb_Nodo5.place(x=450, y = 15)
+
                     lb_R4.config(text = r4.getName() + "\n" + str(r4.getResistencia()) + "Ω")
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
@@ -595,6 +652,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     r5.setName(Name)
                     r5.setResistencia(Value)
+
+                    lb_Nodo6.place(x=550, y = 15)
 
                     lb_R5.config(text = r5.getName() + "\n" + str(r5.getResistencia()) + "Ω")
 
@@ -628,6 +687,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                     r6.setName(Name)
                     r6.setResistencia(Value)
 
+                    lb_Nodo7.place(x=650, y = 15)
+
                     lb_R6.config(text = r6.getName() + "\n" + str(r6.getResistencia()) + "Ω")
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
@@ -659,6 +720,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     r7.setName(Name)
                     r7.setResistencia(Value)
+
+                    lb_Nodo8.place(x=750, y = 15)
 
                     lb_R7.config(text = r7.getName() + "\n" + str(r7.getResistencia()) + "Ω")
 
@@ -692,6 +755,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                     r8.setName(Name)
                     r8.setResistencia(Value)
 
+                    lb_Nodo9.place(x=850, y = 15)
+
                     lb_R8.config(text = r8.getName() + "\n" + str(r8.getResistencia()) + "Ω")
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
@@ -724,6 +789,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                     r9.setName(Name)
                     r9.setResistencia(Value)
 
+                    lb_Nodo10.place(x=950, y = 15)
+
                     lb_R9.config(text = r9.getName() + "\n" + str(r9.getResistencia()) + "Ω")
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
@@ -755,6 +822,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     r10.setName(Name)
                     r10.setResistencia(Value)
+
+                    lb_Nodo11.place(x=1050, y = 15)
 
                     lb_R10.config(text = r10.getName() + "\n" + str(r10.getResistencia()) + "Ω")
 
@@ -811,15 +880,25 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
 
         def Simular():
-            global LastElement, Condicion
+            global LastElement, Condicion, Grafo
 
             Condicion = True
             
+            btn_Save.place_forget()
+            lb_EnValor.place_forget()
+            en_Valor.place_forget()
+            lb_EnName.place_forget()
+            en_Name.place_forget()
+            en_Name.delete(0,"end")
+            en_Valor.delete(0,"end")
+            btn_Distance.place(x = 200, y = 590)
             btn_SourceEdit.place_forget()
             btn_SR.place_forget()
             btn_SR2.place_forget()
             btn_Simulate.place_forget()
             btn_Stop.place(x = 666, y = 590)
+
+            
 
             if LastElement == 1:
                 
@@ -830,15 +909,136 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
             WindGame.after(1000, lambda:Thread(target=muestraDatos()).start())
 
             CalculaNodos()
+            GeneraGrafo()
 
 
+        def GeneraGrafo():
+
+            global Grafo, cantResistencias
+
+            Grafo['L'] = {'A':0} #Conecta el nodo L con el nodo A y le da un valor de 0
+            
+            if cantResistencias >= 1:
+
+                Grafo['A'] = {'B':r1.getResistencia()}
+                
+                if cantResistencias == 1:
+                    Grafo['B'] = {'L':0}
+                else:
+                    if r1.getTipo() == 1:
+                        Grafo['B'] = {'C':r2.getResistencia()}
+                    else:
+                        Grafo['B'] = {'C':r2.getResistencia(),'L':0}
+
+            
+            if cantResistencias >= 2:
+                
+                if cantResistencias == 2:
+                    Grafo['C'] = {'L':0}
+                else:
+                    if r2.getTipo() == 1:
+                        Grafo['C'] = {'D':r3.getResistencia()}
+                    else:
+                        Grafo['C'] = {'D':r3.getResistencia(),'L':0}
+                        
+
+            if cantResistencias >= 3:
+                
+                if cantResistencias == 3:
+                    Grafo['D'] = {'L':0}
+                else:
+                    if r3.getTipo() == 1:
+                        Grafo['D'] = {'E':r4.getResistencia()}
+                    else:
+                        Grafo['D'] = {'E':r4.getResistencia(),'L':0}
+
+
+                        
+            if cantResistencias >= 4:
+                
+                if cantResistencias == 4:
+                    Grafo['E'] = {'L':0}
+                else:
+                    if r4.getTipo() == 1:
+                        Grafo['E'] = {'F':r5.getResistencia()}
+                    else:
+                        Grafo['E'] = {'F':r5.getResistencia(),'L':0}
+
+
+                        
+            if cantResistencias >= 5:
+                
+                if cantResistencias == 5:
+                    Grafo['F'] = {'L':0}
+                else:
+                    if r4.getTipo() == 1:
+                        Grafo['F'] = {'G':r6.getResistencia()}
+                    else:
+                        Grafo['F'] = {'G':r6.getResistencia(),'L':0}          
+
+
+
+
+                        
+            if cantResistencias >= 6:
+                
+                if cantResistencias == 6:
+                    Grafo['G'] = {'L':0}
+                else:
+                    if r4.getTipo() == 1:
+                        Grafo['G'] = {'H':r7.getResistencia()}
+                    else:
+                        Grafo['G'] = {'H':r7.getResistencia(),'L':0}    
+            
+
+            if cantResistencias >= 7:
+                
+                if cantResistencias == 7:
+                    Grafo['H'] = {'L':0}
+                else:
+                    if r3.getTipo() == 1:
+                        Grafo['H'] = {'I':r4.getResistencia()}
+                    else:
+                        Grafo['H'] = {'I':r4.getResistencia(),'L':0}
+
+
+                        
+            if cantResistencias >= 8:
+                
+                if cantResistencias == 8:
+                    Grafo['I'] = {'L':0}
+                else:
+                    if r4.getTipo() == 1:
+                        Grafo['I'] = {'J':r5.getResistencia()}
+                    else:
+                        Grafo['I'] = {'J':r5.getResistencia(),'L':0}
+
+
+                        
+            if cantResistencias >= 9:
+                
+                if cantResistencias == 9:
+                    Grafo['J'] = {'L':0}
+                else:
+                    if r4.getTipo() == 1:
+                        Grafo['J'] = {'K':r6.getResistencia()}
+                    else:
+                        Grafo['J'] = {'K':r6.getResistencia(),'L':0}          
+
+
+            if cantResistencias == 10:
+                Grafo['G'] = {'L':0}
+
+            print(Grafo)
+
+
+                        
         def CalculaNodos():
             
             global Tension, Tension1, Tension2, Tension3, Tension4 ,Tension5, Tension6, Tension7, Tension8, Tension9, GroundT, Condicion, cantResistencias
 
             global Corriente, Corriente1, Corriente2, Corriente3, Corriente4, Corriente5, Corriente6, Corriente7, Corriente8, Corriente9, GroundC, mouse
             
-            print("hola")
 
 
             if cantResistencias == 1:
@@ -849,6 +1049,9 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
             elif cantResistencias == 2:
 
                 if r1.getTipo() == 1 and r2.getTipo() == 1 or r1.getTipo() == 1 and r2.getTipo() == 2: #Evalua si las 2 resistencias estan en serie
+
+                    #Calculos para tensiones y corrientes en cada resistencia
+                    
                     R = r1.getResistencia() + r2.getResistencia()
 
                     Itotal = source.getTension() / R
@@ -860,6 +1063,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                     Tension1 = Itotal * r2.getResistencia()
 
                 else: #Las dos resistencias están en paralelo
+
+                    #Calculos para tensiones y corrientes en cada resistencia
 
                     Tension = source.getTension()
                     Corriente = Tension / r1.getResistencia()
@@ -1619,12 +1824,6 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
             else:
                 return
 
-        
-
-                
-                
-
-            
 
         def StopSimular():
             global Condicion
@@ -1636,7 +1835,45 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
             btn_SR.place(x = 955, y = 590)
             btn_SR2.place(x = 955, y = 490)
             btn_Simulate.place(x = 666, y = 590)
+            btn_Distance.place_forget()
 
+
+        def dijkstra(graph,start,goal): #Funcion encargada de
+            shortest_distance = {}
+            predecessor = {}
+            unseenNodes = graph
+            infinity = 9999999
+            path = []
+            for node in unseenNodes:
+                shortest_distance[node] = infinity
+            shortest_distance[start] = 0
+         
+            while unseenNodes:
+                minNode = None
+                for node in unseenNodes:
+                    if minNode is None:
+                        minNode = node
+                    elif shortest_distance[node] < shortest_distance[minNode]:
+                        minNode = node
+         
+                for childNode, weight in graph[minNode].items():
+                    if weight + shortest_distance[minNode] < shortest_distance[childNode]: #Compara los valores de menor y mayor peso
+                        shortest_distance[childNode] = weight + shortest_distance[minNode]
+                        predecessor[childNode] = minNode
+                unseenNodes.pop(minNode)
+         
+            currentNode = goal
+            while currentNode != start:
+                try:
+                    path.insert(0,currentNode)
+                    currentNode = predecessor[currentNode]
+                except KeyError:
+                    print('El camino es posible de alcanzar')
+                    break
+            path.insert(0,start)
+            if shortest_distance[goal] != infinity:
+                print('La distancia más corta es es ' + str(shortest_distance[goal]))
+                print('El camino a recorrer es: ' + str(path))
             
 
             
