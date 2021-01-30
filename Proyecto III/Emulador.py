@@ -228,16 +228,16 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
         
         source = Fuente.Fuente("V1", 5) #Instancia del valor inicial que tendra la fuente de tension.
 
-        r1 = Resistencia.Resistencia("R1", 0)#Instancia de los objetos de resistencias.
-        r2 = Resistencia.Resistencia("R2", 0)
-        r3 = Resistencia.Resistencia("R3", 0)
-        r4 = Resistencia.Resistencia("R4", 0)
-        r5 = Resistencia.Resistencia("R5", 0)
-        r6 = Resistencia.Resistencia("R6", 0)
-        r7 = Resistencia.Resistencia("R7", 0)
-        r8 = Resistencia.Resistencia("R8", 0)
-        r9 = Resistencia.Resistencia("R9", 0)
-        r10 = Resistencia.Resistencia("R10", 0)
+        r1 = Resistencia.Resistencia("R1", 0, 1)#Instancia de los objetos de resistencias.
+        r2 = Resistencia.Resistencia("R2", 0, 1)
+        r3 = Resistencia.Resistencia("R3", 0, 1)
+        r4 = Resistencia.Resistencia("R4", 0, 1)
+        r5 = Resistencia.Resistencia("R5", 0, 1)
+        r6 = Resistencia.Resistencia("R6", 0, 1)
+        r7 = Resistencia.Resistencia("R7", 0, 1)
+        r8 = Resistencia.Resistencia("R8", 0, 1)
+        r9 = Resistencia.Resistencia("R9", 0, 1)
+        r10 = Resistencia.Resistencia("R10", 0, 1)
 
 
         
@@ -469,6 +469,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                     
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
 
+                        r1.setTipo(1)
+
                         LastElement = 1
 
                         img1 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries)
@@ -477,6 +479,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                         
 
                     else:
+
+                        r1.setTipo(2)
 
                         LastElement = 2
 
@@ -499,6 +503,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
 
+                        r2.setTipo(1)
+
                         LastElement = 1
 
                         img2 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries)
@@ -506,6 +512,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                         lb_R2.place(x= CoordX + 58, y = 70)
 
                     else:
+                        
+                        r2.setTipo(2)
 
                         LastElement = 2
 
@@ -528,6 +536,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
 
+                        r3.setTipo(1)
+
                         LastElement = 1
 
                         img3 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries)
@@ -535,6 +545,9 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                         lb_R3.place(x= CoordX + 58, y = 70)
 
                     else:
+
+                        r3.setTipo(2)
+                        
                         LastElement = 2
 
                         img3 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageParallel)
@@ -555,6 +568,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
 
+                        r4.setTipo(1)
+
                         LastElement = 1
 
                         img4 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries)
@@ -562,6 +577,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                         lb_R4.place(x= CoordX + 58, y = 70)
 
                     else:
+
+                        r4.setTipo(2)
 
                         LastElement = 2
 
@@ -583,6 +600,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
 
+                        r5.setTipo(1)
+
                         LastElement = 1
 
                         img5 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries)
@@ -590,6 +609,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                         lb_R5.place(x= CoordX + 58, y = 70)
 
                     else:
+
+                        r5.setTipo(2)
 
                         LastElement = 2
 
@@ -611,6 +632,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
 
+                        r6.setTipo(1)
+
                         LastElement = 1
 
                         img6 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries)
@@ -618,6 +641,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                         lb_R6.place(x= CoordX + 58, y = 70)
 
                     else:
+
+                        r6.setTipo(2)
                         
                         LastElement = 2
 
@@ -639,6 +664,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
 
+                        r7.setTipo(1)
+
                         LastElement = 1
 
                         img7 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries)
@@ -646,6 +673,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                         lb_R7.place(x= CoordX + 58, y = 70)
 
                     else:
+
+                        r7.setTipo(2)
 
                         LastElement = 2
 
@@ -667,6 +696,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
 
+                        r8.setTipo(1)
+
                         LastElement = 1
 
                         img8 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries)
@@ -674,6 +705,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                         lb_R8.place(x= CoordX + 58, y = 70)
 
                     else:
+
+                        r8.setTipo(2)
 
                         LastElement = 2
 
@@ -695,6 +728,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
 
+                        r9.setTipo(1)
+
                         LastElement = 1
 
                         img9 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries)
@@ -702,6 +737,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                         lb_R9.place(x= CoordX + 58, y = 70)
 
                     else:
+
+                        r9.setTipo(2)
 
                         LastElement = 2
 
@@ -723,6 +760,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
                     if Tipo == 1:#Condicion para agregar una resistencia en serie
 
+                        r10.setTipo(1)
+
                         LastElement = 2
 
                         img10 = C_Game.create_image(CoordX,38, anchor = NW , image =C_Game.imageSeries)
@@ -734,6 +773,8 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                         lb_R10.place(x= CoordX + 58, y = 70)
 
                     else:
+
+                        r10.setTipo(2)
 
                         LastElement = 2
 
@@ -788,6 +829,550 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
             WindGame.after(1000, lambda:Thread(target=muestraDatos()).start())
 
+            CalculaNodos()
+
+
+        def CalculaNodos():
+            
+            global Tension, Tension1, Tension2, Tension3, Tension4 ,Tension5, Tension6, Tension7, Tension8, Tension9, GroundT, Condicion, cantResistencias
+
+            global Corriente, Corriente1, Corriente2, Corriente3, Corriente4, Corriente5, Corriente6, Corriente7, Corriente8, Corriente9, GroundC, mouse
+            
+            print("hola")
+
+
+            if cantResistencias == 1:
+
+                Corriente = source.getTension() / r1.getResistencia()
+                Tension = source.getTension()
+
+            elif cantResistencias == 2:
+
+                if r1.getTipo() == 1 and r2.getTipo() == 1 or r1.getTipo() == 1 and r2.getTipo() == 2: #Evalua si las 2 resistencias estan en serie
+                    R = r1.getResistencia() + r2.getResistencia()
+
+                    Itotal = source.getTension() / R
+
+                    Corriente = Itotal
+                    Tension = Itotal * r1.getResistencia()
+                    
+                    Corriente1 = Itotal
+                    Tension1 = Itotal * r2.getResistencia()
+
+                else: #Las dos resistencias están en paralelo
+
+                    Tension = source.getTension()
+                    Corriente = Tension / r1.getResistencia()
+                    
+                    Tension1 = source.getTension()
+                    Corriente1 = Tension1 / r2.getResistencia()
+
+            elif cantResistencias == 3:
+                
+                
+                if r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 or r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 2: #todas las resistencias en serie
+
+                    R = r1.getResistencia() + r2.getResistencia() + r3.getResistencia()
+
+                    Itotal = source.getTension() / R
+
+                    Corriente = Itotal
+                    Tension = Itotal * r1.getResistencia()
+                    
+                    Corriente1 = Itotal
+                    Tension1 = Itotal * r2.getResistencia()
+                    
+                    Corriente2 = Itotal
+                    Tension2 = Itotal * r3.getResistencia()
+
+                elif r1.getTipo() == 2 and r2.getTipo() == 1 and r3.getTipo() == 1 or r1.getTipo() == 2 and r2.getTipo() == 1 and r3.getTipo() == 2: #La ultimas 2 resistencias son serie pero la primera es paralela
+
+                    Tension = source.getTension()
+                    Corriente = Tension/r1.getResistencia()
+
+
+                    R = r2.getResistencia() + r3.getResistencia()
+
+                    Itotal = source.getTension() / R
+                    
+                    Corriente1 = Itotal
+                    Tension1 =  Itotal * r2.getResistencia()
+                    
+                    Corriente2 = Itotal
+                    Tension2 =  Itotal * r3.getResistencia()
+
+
+                elif r1.getTipo() == 1 and r2.getTipo() == 2 and r3.getTipo() == 2 or r1.getTipo() == 1 and r2.getTipo() == 2 and r3.getTipo() == 1: #Solo la primera res es serie, las otras son paralelas
+
+                    R = r1.getResistencia() + (r2.getResistencia()**-1 + r3.getResistencia()**-1)**-1
+
+                    Itotal = source.getTension() / R
+
+                    Tension = Itotal * r1.getResistencia()
+                    Corriente = Itotal
+
+                    Tension1 = source.getTension() - Tension
+                    Corriente1 = Tension1/r2.getResistencia()
+
+                    Tension2 = Tension1
+                    Corriente2 = Tension2/r3.getResistencia()
+
+                else: #Todas son paralelas
+
+                    Tension = source.getTension()
+                    Corriente = Tension/r1.getResistencia()
+
+                    Tension1 = source.getTension()
+                    Corriente1 = Tension/r2.getResistencia()
+
+                    Tension2 = source.getTension()
+                    Corriente2 = Tension/r3.getResistencia()
+                        
+            elif cantResistencias == 4:
+
+
+                if r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  or r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 2: #Todo en serie
+
+                    R = r1.getResistencia() + r2.getResistencia() + r3.getResistencia() + r4.getResistencia()
+
+                    Itotal = source.getTension() / R
+
+                    Corriente = Itotal
+                    Tension = Itotal * r1.getResistencia()
+                    
+                    Corriente1 = Itotal
+                    Tension1 = Itotal * r2.getResistencia()
+                    
+                    Corriente2 = Itotal
+                    Tension2 = Itotal * r3.getResistencia()
+                    
+                    Corriente3 = Itotal
+                    Tension3 = Itotal * r4.getResistencia()
+
+                elif r1.getTipo() == 1 and r2.getTipo() == 2 and r3.getTipo() == 1 and r4.getTipo() == 1 or r1.getTipo() == 1 and r2.getTipo() == 2 and r3.getTipo() == 1 and r4.getTipo() == 2: #R2 en paraelo
+
+                    R = r1.getResistencia() + (r2.getResistencia()**-1 + (r3.getResistencia() + r4.getResistencia())**-1) **-1
+
+                    Itotal = source.getTension() / R
+
+                    Tension = Itotal*r1.getResistencia()
+                    Corriente = Itotal
+
+                    Tension1 = source.getTension() - Tension
+                    Corriente1 = Tension1 / r2.getResistencia()
+
+                    Corriente2 = Itotal - Corriente1
+                    Tension2 = Corriente2 * r3.getResistencia()
+
+                    Corriente3 = Corriente2
+                    Tension3 = Corriente3 * r4.getResistencia()
+
+                elif r1.getTipo() == 2 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1: #R1 en paralelo
+
+                    R = (r1.getResistencia()**-1 + (r2.getResistencia()+r3.getResistencia()+r4.getResistencia())**-1)**-1
+
+                    Itotal = source.getTension() / R
+
+                    Tension = source.getTension()
+                    Corriente  = Tension/r1.getResistencia()
+
+                    Corriente1 = Itotal - Corriente
+                    Corriente2 = Corriente1
+                    Corriente3 = Corriente1
+                    Corriente4 = Corriente1
+
+                    Tension1 = Corriente1 * r2.getResistencia()
+                    Tension2 = Corriente2 * r3.getResistencia()
+                    Tension3 = Corriente3 * r4.getResistencia()
+
+                
+
+                elif r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 2 and r4.getTipo() == 1 or r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 2 and r4.getTipo() == 2: #R3 en paralelo
+
+                    R = r1.getResistencia() + r2.getResistencia() + ((r3.getResistencia())**-1 + (r2.getResistencia())**-1)**-1
+
+                    Itotal = source.getTension() / R
+
+                    
+                    Corriente = Itotal
+                    Tension = Corriente*r1.getResistencia()
+                    
+                    Corriente1 = Itotal
+                    Tension1 = Corriente1*r2.getResistencia()
+
+                    TensionTemp = source.getTension() - Tension - Tension1
+
+                    Tension2 = TensionTemp
+                    Corriente2 = Tension2/r3.getResistencia()
+
+                    Tension3 = TensionTemp
+                    Corriente3 = Tension3/r4.getResistencia()
+
+                else: #Todas en paralelo
+
+                    Tension = source.getTension()
+                    Corriente = Tension/r1.getResistencia()
+
+                    Tension1 = source.getTension()
+                    Corriente1 = Tension1/r2.getResistencia()
+
+                    Tension2 = source.getTension()
+                    Corriente2 = Tension2/r3.getResistencia()
+                    
+                    Tension3 = source.getTension()
+                    Corriente3 = Tension3/r4.getResistencia()
+
+            elif cantResistencias == 5:
+
+                if r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 1 or r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 2: #Todo en serie
+                    
+                    R = r1.getResistencia() + r2.getResistencia() + r3.getResistencia() + r4.getResistencia() + r5.getResistencia()
+
+                    Itotal = source.getTension() / R
+
+                    Corriente = Itotal
+                    Tension = Itotal * r1.getResistencia()
+                    
+                    Corriente1 = Itotal
+                    Tension1 = Itotal * r2.getResistencia()
+                    
+                    Corriente2 = Itotal
+                    Tension2 = Itotal * r3.getResistencia()
+                    
+                    Corriente3 = Itotal
+                    Tension3 = Itotal * r4.getResistencia()
+                    
+                    Corriente4 = Itotal
+                    Tension4 = Itotal * r5.getResistencia()
+
+                    
+                elif r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 2 or  r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 1: #Todo en paralelo
+
+                    Tension = source.getTension()
+                    Corriente = Tension/r1.getResistencia()
+
+                    Tension1 = source.getTension()
+                    Corriente1 = Tension1/r2.getResistencia()
+
+                    Tension2 = source.getTension()
+                    Corriente2 = Tension2/r3.getResistencia()
+                    
+                    Tension3 = source.getTension()
+                    Corriente3 = Tension3/r4.getResistencia()
+
+                    Tension4 = source.getTension()
+                    Corriente4 = Tension4/r5.getResistencia()
+
+            elif cantResistencias == 6:
+
+                if r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 1 and r6.getTipo() == 1 or r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 1 and r6.getTipo() == 2:#Todo en serie
+
+                    
+                    R = r1.getResistencia() + r2.getResistencia() + r3.getResistencia() + r4.getResistencia() + r5.getResistencia() + r6.getResistencia()
+
+                    Itotal = source.getTension() / R
+
+                    Corriente = Itotal
+                    Tension = Itotal * r1.getResistencia()
+                    
+                    Corriente1 = Itotal
+                    Tension1 = Itotal * r2.getResistencia()
+                    
+                    Corriente2 = Itotal
+                    Tension2 = Itotal * r3.getResistencia()
+                    
+                    Corriente3 = Itotal
+                    Tension3 = Itotal * r4.getResistencia()
+                    
+                    Corriente4 = Itotal
+                    Tension4 = Itotal * r5.getResistencia()
+                    
+                    Corriente5 = Itotal
+                    Tension5 = Itotal * r6.getResistencia()
+
+
+                    
+                elif r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 2 and r6.getTipo() == 2 or  r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 2 and r6.getTipo() == 1:#Todo en paralelo
+
+                    Tension = source.getTension()
+                    Corriente = Tension/r1.getResistencia()
+
+                    Tension1 = source.getTension()
+                    Corriente1 = Tension1/r2.getResistencia()
+
+                    Tension2 = source.getTension()
+                    Corriente2 = Tension2/r3.getResistencia()
+                    
+                    Tension3 = source.getTension()
+                    Corriente3 = Tension3/r4.getResistencia()
+
+                    Tension4 = source.getTension()
+                    Corriente4 = Tension4/r5.getResistencia()
+
+                    Tension5 = source.getTension()
+                    Corriente5 = Tension5/r6.getResistencia()
+                    
+
+
+            elif cantResistencias == 7:
+
+                if r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 1 and r6.getTipo() == 1 and r7.getTipo() == 1 or  r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 1 and r6.getTipo() == 1 and r7.getTipo() == 2:#Todo en serie
+                    
+                    R = r1.getResistencia() + r2.getResistencia() + r3.getResistencia() + r4.getResistencia() + r5.getResistencia() + r6.getResistencia() + r7.getResistencia()
+
+                    Itotal = source.getTension() / R
+
+                    Corriente = Itotal
+                    Tension = Itotal * r1.getResistencia()
+                    
+                    Corriente1 = Itotal
+                    Tension1 = Itotal * r2.getResistencia()
+                    
+                    Corriente2 = Itotal
+                    Tension2 = Itotal * r3.getResistencia()
+                    
+                    Corriente3 = Itotal
+                    Tension3 = Itotal * r4.getResistencia()
+                    
+                    Corriente4 = Itotal
+                    Tension4 = Itotal * r5.getResistencia()
+                    
+                    Corriente5 = Itotal
+                    Tension5 = Itotal * r6.getResistencia()
+                    
+                    Corriente6 = Itotal
+                    Tension6 = Itotal * r7.getResistencia()
+
+                
+                elif r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 2 and r6.getTipo() == 2 and r7.getTipo() == 2  or  r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 2 and r6.getTipo() == 2 and r7.getTipo() == 1:#Todo en paralelo
+    
+                    Tension = source.getTension()
+                    Corriente = Tension/r1.getResistencia()
+
+                    Tension1 = source.getTension()
+                    Corriente1 = Tension1/r2.getResistencia()
+
+                    Tension2 = source.getTension()
+                    Corriente2 = Tension2/r3.getResistencia()
+                    
+                    Tension3 = source.getTension()
+                    Corriente3 = Tension3/r4.getResistencia()
+
+                    Tension4 = source.getTension()
+                    Corriente4 = Tension4/r5.getResistencia()
+
+                    Tension5 = source.getTension()
+                    Corriente5 = Tension5/r6.getResistencia()
+                    
+                    Tension6 = source.getTension()
+                    Corriente6 = Tension6/r7.getResistencia()
+
+                    
+
+
+            elif cantResistencias == 8:
+
+                if r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 1 and r6.getTipo() == 1 and r7.getTipo() == 1 and r8.getTipo() == 1 or  r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 1 and r6.getTipo() == 1 and r7.getTipo() == 1 and r8.getTipo() == 2:#Todo en serie
+
+                                    
+                    R = r1.getResistencia() + r2.getResistencia() + r3.getResistencia() + r4.getResistencia() + r5.getResistencia() + r6.getResistencia() + r7.getResistencia() + r8.getResistencia()
+
+                    Itotal = source.getTension() / R
+
+                    Corriente = Itotal
+                    Tension = Itotal * r1.getResistencia()
+                    
+                    Corriente1 = Itotal
+                    Tension1 = Itotal * r2.getResistencia()
+                    
+                    Corriente2 = Itotal
+                    Tension2 = Itotal * r3.getResistencia()
+                    
+                    Corriente3 = Itotal
+                    Tension3 = Itotal * r4.getResistencia()
+                    
+                    Corriente4 = Itotal
+                    Tension4 = Itotal * r5.getResistencia()
+                    
+                    Corriente5 = Itotal
+                    Tension5 = Itotal * r6.getResistencia()
+                    
+                    Corriente6 = Itotal
+                    Tension6 = Itotal * r7.getResistencia()
+                    
+                    Corriente7 = Itotal
+                    Tension7 = Itotal * r8.getResistencia()
+
+                elif r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 2 and r6.getTipo() == 2 and r7.getTipo() == 2 and r8.getTipo() == 2 or  r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 2 and r6.getTipo() == 2 and r7.getTipo() == 2 and r8.getTipo() == 1:#Todo en paralelo
+                        
+                    Tension = source.getTension()
+                    Corriente = Tension/r1.getResistencia()
+
+                    Tension1 = source.getTension()
+                    Corriente1 = Tension1/r2.getResistencia()
+
+                    Tension2 = source.getTension()
+                    Corriente2 = Tension2/r3.getResistencia()
+                    
+                    Tension3 = source.getTension()
+                    Corriente3 = Tension3/r4.getResistencia()
+
+                    Tension4 = source.getTension()
+                    Corriente4 = Tension4/r5.getResistencia()
+
+                    Tension5 = source.getTension()
+                    Corriente5 = Tension5/r6.getResistencia()
+                    
+                    Tension6 = source.getTension()
+                    Corriente6 = Tension6/r7.getResistencia()
+                    
+                    Tension7 = source.getTension()
+                    Corriente7 = Tension7/r8.getResistencia()
+
+                
+
+
+
+            elif cantResistencias == 9:
+
+                if r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 1 and r6.getTipo() == 1 and r7.getTipo() == 1 and r8.getTipo() == 1 and r9.getTipo() == 1 or  r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 1 and r6.getTipo() == 1 and r7.getTipo() == 1 and r8.getTipo() == 1 and r9.getTipo() == 2:#Todo en serie
+
+                                    
+                    R = r1.getResistencia() + r2.getResistencia() + r3.getResistencia() + r4.getResistencia() + r5.getResistencia() + r6.getResistencia() + r7.getResistencia() + r8.getResistencia() + r9.getResistencia()
+
+                    Itotal = source.getTension() / R
+
+                    Corriente = Itotal
+                    Tension = Itotal * r1.getResistencia()
+                    
+                    Corriente1 = Itotal
+                    Tension1 = Itotal * r2.getResistencia()
+                    
+                    Corriente2 = Itotal
+                    Tension2 = Itotal * r3.getResistencia()
+                    
+                    Corriente3 = Itotal
+                    Tension3 = Itotal * r4.getResistencia()
+                    
+                    Corriente4 = Itotal
+                    Tension4 = Itotal * r5.getResistencia()
+                    
+                    Corriente5 = Itotal
+                    Tension5 = Itotal * r6.getResistencia()
+                    
+                    Corriente6 = Itotal
+                    Tension6 = Itotal * r7.getResistencia()
+                    
+                    Corriente7 = Itotal
+                    Tension7 = Itotal * r8.getResistencia()
+                    
+                    Corriente8 = Itotal
+                    Tension8 = Itotal * r9.getResistencia()
+
+                elif r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 2 and r6.getTipo() == 2 and r7.getTipo() == 2 and r8.getTipo() == 2  and r9.getTipo() == 2 or r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 2 and r6.getTipo() == 2 and r7.getTipo() == 2 and r8.getTipo() == 2  and r9.getTipo() == 1:#Todo en paralelo
+                        
+                    Tension = source.getTension()
+                    Corriente = Tension/r1.getResistencia()
+
+                    Tension1 = source.getTension()
+                    Corriente1 = Tension1/r2.getResistencia()
+
+                    Tension2 = source.getTension()
+                    Corriente2 = Tension2/r3.getResistencia()
+                    
+                    Tension3 = source.getTension()
+                    Corriente3 = Tension3/r4.getResistencia()
+
+                    Tension4 = source.getTension()
+                    Corriente4 = Tension4/r5.getResistencia()
+
+                    Tension5 = source.getTension()
+                    Corriente5 = Tension5/r6.getResistencia()
+                    
+                    Tension6 = source.getTension()
+                    Corriente6 = Tension6/r7.getResistencia()
+                    
+                    Tension7 = source.getTension()
+                    Corriente7 = Tension7/r8.getResistencia()
+                    
+                    Tension8 = source.getTension()
+                    Corriente8 = Tension8/r9.getResistencia()
+
+                    
+
+
+
+            elif cantResistencias == 10:
+
+                if r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 1 and r6.getTipo() == 1 and r7.getTipo() == 1 and r8.getTipo() == 1 and r9.getTipo() == 1 and r10.getTipo() == 1 or  r1.getTipo() == 1 and r2.getTipo() == 1 and r3.getTipo() == 1 and r4.getTipo() == 1  and r5.getTipo() == 1 and r6.getTipo() == 1 and r7.getTipo() == 1 and r8.getTipo() == 1 and r9.getTipo() == 1 and r10.getTipo() == 2:#Todo en serie
+
+                                    
+                    R = r1.getResistencia() + r2.getResistencia() + r3.getResistencia() + r4.getResistencia() + r5.getResistencia() + r6.getResistencia() + r7.getResistencia() + r8.getResistencia() + r9.getResistencia() + r10.getResistencia()
+
+                    Itotal = source.getTension() / R
+
+                    Corriente = Itotal
+                    Tension = Itotal * r1.getResistencia()
+                    
+                    Corriente1 = Itotal
+                    Tension1 = Itotal * r2.getResistencia()
+                    
+                    Corriente2 = Itotal
+                    Tension2 = Itotal * r3.getResistencia()
+                    
+                    Corriente3 = Itotal
+                    Tension3 = Itotal * r4.getResistencia()
+                    
+                    Corriente4 = Itotal
+                    Tension4 = Itotal * r5.getResistencia()
+                    
+                    Corriente5 = Itotal
+                    Tension5 = Itotal * r6.getResistencia()
+                    
+                    Corriente6 = Itotal
+                    Tension6 = Itotal * r7.getResistencia()
+                    
+                    Corriente7 = Itotal
+                    Tension7 = Itotal * r8.getResistencia()
+                    
+                    Corriente8 = Itotal
+                    Tension8 = Itotal * r9.getResistencia()
+                    
+                    Corriente9 = Itotal
+                    Tension9 = Itotal * r10.getResistencia()
+
+                elif r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 2 and r6.getTipo() == 2 and r7.getTipo() == 2 and r8.getTipo() == 2  and r9.getTipo() == 2 and r10.getTipo() == 2 or  r1.getTipo() == 2 and r2.getTipo() == 2 and r3.getTipo() == 2 and r4.getTipo() == 2  and r5.getTipo() == 2 and r6.getTipo() == 2 and r7.getTipo() == 2 and r8.getTipo() == 2  and r9.getTipo() == 2 and r10.getTipo() == 1:#Todo en paralelo
+                
+                    Tension = source.getTension()
+                    Corriente = Tension/r1.getResistencia()
+
+                    Tension1 = source.getTension()
+                    Corriente1 = Tension1/r2.getResistencia()
+
+                    Tension2 = source.getTension()
+                    Corriente2 = Tension2/r3.getResistencia()
+                    
+                    Tension3 = source.getTension()
+                    Corriente3 = Tension3/r4.getResistencia()
+
+                    Tension4 = source.getTension()
+                    Corriente4 = Tension4/r5.getResistencia()
+
+                    Tension5 = source.getTension()
+                    Corriente5 = Tension5/r6.getResistencia()
+                    
+                    Tension6 = source.getTension()
+                    Corriente6 = Tension6/r7.getResistencia()
+                    
+                    Tension7 = source.getTension()
+                    Corriente7 = Tension7/r8.getResistencia()
+                    
+                    Tension8 = source.getTension()
+                    Corriente8 = Tension8/r9.getResistencia()
+                                        
+                    Tension9 = source.getTension()
+                    Corriente9 = Tension9/r10.getResistencia()
+
 
         def Mouse(event):
             global mouse, Condicion
@@ -799,12 +1384,13 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
             else:
                 return
 
-        def muestraDatos():
+        def muestraDatos(): #Funcion encargada de colocar labels en los nodos donde el mouse sea posicionado
 
             
             global Tension, Tension1, Tension2, Tension3, Tension4 ,Tension5, Tension6, Tension7, Tension8, Tension9, GroundT, Condicion, cantResistencias
 
             global Corriente, Corriente1, Corriente2, Corriente3, Corriente4, Corriente5, Corriente6, Corriente7, Corriente8, Corriente9, GroundC, mouse
+
             
             if Condicion:
 
@@ -813,16 +1399,16 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
                 
                 lb_Data.place_forget()
                 
-                if mouse[0] > 117 and mouse[0] < 171 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 1:
-
-                    print("Aquí pase")
+                if mouse[0] > 117 and mouse[0] < 171 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 1: #Evalua la posicion del mouse en el 1 nodo
                     
-                    lb_Data.config(text = "Tension = " + str(Tension) + " V\nCorriente = " + str(Corriente) + " mA")
+                        
+                    lb_Data.config(text = "Tension = " + str(Tension) + " V\nCorriente = " + str(Corriente) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
                     
-                elif mouse[0] > 135 and mouse[0] < 150 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 1: #
                     
-                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(GroundC) + " mA")
+                elif mouse[0] > 135 and mouse[0] < 150 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 1: 
+                    
+                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(Corriente) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
 
                     
@@ -834,57 +1420,14 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
 
 
-                elif mouse[0] > 217 and mouse[0] < 271 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 2:
+                elif mouse[0] > 217 and mouse[0] < 271 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 2:#Evalua la posicion del mouse en el 2 nodo
                     
-                    lb_Data.config(text = "Tension = " + str(Tension1) + " V\nCorriente = " + str(Corriente1) + " mA")
+                    lb_Data.config(text = "Tension = " + str(Tension1) + " V\nCorriente = " + str(Corriente1) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
                     
-                elif mouse[0] > 235 and mouse[0] < 250 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 2: #
+                elif mouse[0] > 235 and mouse[0] < 250 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 2: 
                     
-                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(GroundC) + " mA")
-                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
-
-
-
-
-
-
-
-
-
-
-
-
-
-                elif mouse[0] > 317 and mouse[0] < 371 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 3:
-                    
-                    lb_Data.config(text = "Tension = " + str(Tension2) + " V\nCorriente = " + str(Corriente2) + " mA")
-                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
-                    
-                elif mouse[0] > 335 and mouse[0] < 350 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 3: #
-                    
-                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(GroundC) + " mA")
-                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
-
-
-
-
-
-
-
-
-
-
-
-
-                elif mouse[0] > 417 and mouse[0] < 471 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 4:
-                    
-                    lb_Data.config(text = "Tension = " + str(Tension3) + " V\nCorriente = " + str(Corriente3) + " mA")
-                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
-                    
-                elif mouse[0] > 435 and mouse[0] < 450 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 4: #
-                    
-                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(GroundC) + " mA")
+                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(Corriente1) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
 
 
@@ -899,15 +1442,35 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
 
 
+                elif mouse[0] > 317 and mouse[0] < 371 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 3:#Evalua la posicion del mouse en el 3 nodo
                     
-                elif mouse[0] > 517 and mouse[0] < 571 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 5:
-                    
-                    lb_Data.config(text = "Tension = " + str(Tension4) + " V\nCorriente = " + str(Corriente4) + " mA")
+                    lb_Data.config(text = "Tension = " + str(Tension2) + " V\nCorriente = " + str(Corriente2) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
                     
-                elif mouse[0] > 535 and mouse[0] < 550 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 5: #
+                elif mouse[0] > 335 and mouse[0] < 350 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 3: 
                     
-                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(GroundC) + " mA")
+                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(Corriente2) + " A")
+                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
+
+
+
+
+
+
+
+
+
+
+
+
+                elif mouse[0] > 417 and mouse[0] < 471 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 4:#Evalua la posicion del mouse en el 4 nodo
+                    
+                    lb_Data.config(text = "Tension = " + str(Tension3) + " V\nCorriente = " + str(Corriente3) + " A")
+                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
+                    
+                elif mouse[0] > 435 and mouse[0] < 450 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 4: 
+                    
+                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(Corriente3) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
 
 
@@ -922,17 +1485,15 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
 
 
-
-
                     
-                elif mouse[0] > 617 and mouse[0] < 671 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 6:
+                elif mouse[0] > 517 and mouse[0] < 571 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 5:#Evalua la posicion del mouse en el 5 nodo
                     
-                    lb_Data.config(text = "Tension = " + str(Tension5) + " V\nCorriente = " + str(Corriente5) + " mA")
+                    lb_Data.config(text = "Tension = " + str(Tension4) + " V\nCorriente = " + str(Corriente4) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
                     
-                elif mouse[0] > 635 and mouse[0] < 650 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 6: #
+                elif mouse[0] > 535 and mouse[0] < 550 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 5: 
                     
-                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(GroundC) + " mA")
+                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(Corriente4) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
 
 
@@ -948,38 +1509,16 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
 
 
+
                     
-                elif mouse[0] > 717 and mouse[0] < 771 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 7:
+                elif mouse[0] > 617 and mouse[0] < 671 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 6:#Evalua la posicion del mouse en el 6 nodo
                     
-                    lb_Data.config(text = "Tension = " + str(Tension6) + " V\nCorriente = " + str(Corriente6) + " mA")
+                    lb_Data.config(text = "Tension = " + str(Tension5) + " V\nCorriente = " + str(Corriente5) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
                     
-                elif mouse[0] > 735 and mouse[0] < 750 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 7: #
+                elif mouse[0] > 635 and mouse[0] < 650 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 6: 
                     
-                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(GroundC) + " mA")
-                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                elif mouse[0] > 817 and mouse[0] < 871 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 8:
-                    
-                    lb_Data.config(text = "Tension = " + str(Tension7) + " V\nCorriente = " + str(Corriente7) + " mA")
-                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
-                    
-                elif mouse[0] > 835 and mouse[0] < 850 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 8: #
-                    
-                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(GroundC) + " mA")
+                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(Corriente5) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
 
 
@@ -994,14 +1533,61 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
 
 
-                elif mouse[0] > 917 and mouse[0] < 971 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 9:
+
                     
-                    lb_Data.config(text = "Tension = " + str(Tension8) + " V\nCorriente = " + str(Corriente8) + " mA")
+                elif mouse[0] > 717 and mouse[0] < 771 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 7:#Evalua la posicion del mouse en el 7 nodo
+                    
+                    lb_Data.config(text = "Tension = " + str(Tension6) + " V\nCorriente = " + str(Corriente6) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
                     
-                elif mouse[0] > 935 and mouse[0] < 950 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 9: #
+                elif mouse[0] > 735 and mouse[0] < 750 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 7: 
                     
-                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(GroundC) + " mA")
+                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(Corriente6) + " A")
+                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                elif mouse[0] > 817 and mouse[0] < 871 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 8:#Evalua la posicion del mouse en el 8 nodo
+                    
+                    lb_Data.config(text = "Tension = " + str(Tension7) + " V\nCorriente = " + str(Corriente7) + " A")
+                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
+                    
+                elif mouse[0] > 835 and mouse[0] < 850 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 8: 
+                    
+                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(Corriente7) + " A")
+                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
+
+
+
+
+
+
+
+
+
+
+
+
+
+                elif mouse[0] > 917 and mouse[0] < 971 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 9:#Evalua la posicion del mouse en el 9 nodo
+                    
+                    lb_Data.config(text = "Tension = " + str(Tension8) + " V\nCorriente = " + str(Corriente8) + " A")
+                    lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
+                    
+                elif mouse[0] > 935 and mouse[0] < 950 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 9: 
+                    
+                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(Corriente8) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
 
 
@@ -1014,14 +1600,14 @@ class General: #La clase contiene todas las interfaces presentes en el menu, con
 
 
                     
-                elif mouse[0] > 1017 and mouse[0] < 1071 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 10:
+                elif mouse[0] > 1017 and mouse[0] < 1071 and mouse[1] > 40 and mouse[1] < 69 and cantResistencias >= 10: #Evalua la posicion del mouse en el 10 nodo
                     
-                    lb_Data.config(text = "Tension = " + str(Tension9) + " V\nCorriente = " + str(Corriente9) + " mA")
+                    lb_Data.config(text = "Tension = " + str(Tension9) + " V\nCorriente = " + str(Corriente9) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
                     
-                elif mouse[0] > 1035 and mouse[0] < 1050 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 10: #
+                elif mouse[0] > 1035 and mouse[0] < 1050 and mouse[1] > 230 and mouse[1] < 320 and cantResistencias >= 10:
                     
-                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(GroundC) + " mA")
+                    lb_Data.config(text = "Tension = 0 V\nCorriente = " + str(Corriente9) + " A")
                     lb_Data.place(x = mouse[0]+25, y = mouse[1]-25)
 
 
